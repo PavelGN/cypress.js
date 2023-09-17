@@ -1,12 +1,12 @@
-describe('Тестируем форму логина', function () {
-   it('Верный логин и верный пароль', function () {
+describe('Тестируем покупку аватара', function () {
+   it('Валидные данные', function () {
         cy.visit('https://pokemonbattle.me/login');
         cy.get(':nth-child(1) > .auth__input').type('укажите ваш логин');
         cy.get('#password').type('укажите ваш пароль');
         cy.get('.auth__button').click();
         cy.get('.header__btns > [href="/shop"]').click();
-        const randomIndex = Math.floor(Math.random() * 12) + 1;
-        cy.get(`:nth-child(${randomIndex}) > .shop__button`).click();
+        const randomIndex = Math.floor(Math.random() * 12) + 1;  // здесь мы генерируемслучайное число от 1 до 12, можно его убрать, а в след строке кода менять число самому
+        cy.get(`:nth-child(${randomIndex}) > .shop__button`).click();  // здесь вместо ${randomIndex} можно указывать число от 1 до 12
         cy.get('.pay__select-block').should('exist').should('be.visible');
         cy.get('.payment__info-text-new').should('exist').should('be.visible');
         cy.get('.payment__info-button-v2').should('exist').should('be.visible');
