@@ -1,8 +1,8 @@
 describe('Тестируем форму логина', function () {
    it('Верный логин и верный пароль', function () {
         cy.visit('https://pokemonbattle.me/login');
-        cy.get(':nth-child(1) > .auth__input').type('pavel_wower@mail.ru');
-        cy.get('#password').type('Xzxzzxzxzca1988');
+        cy.get(':nth-child(1) > .auth__input').type('укажите ваш логин');
+        cy.get('#password').type('укажите ваш пароль');
         cy.get('.auth__button').click();
         cy.get('.header__btns > [href="/shop"]').click();
         const randomIndex = Math.floor(Math.random() * 12) + 1;
